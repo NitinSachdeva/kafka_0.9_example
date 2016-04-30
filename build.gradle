@@ -1,0 +1,29 @@
+apply plugin: "java"
+apply plugin: 'idea'
+
+sourceSets {
+    main.java.srcDir "src/java"
+    main.resources { srcDirs = ["src/java"]; include "**/*.*" }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.apache.commons:commons-lang3:3.4"
+    compile 'org.apache.kafka:kafka-clients:0.9.0.0'
+}
+
+jar {
+    from configurations.compile.collect { zipTree it}
+    manifest.attributes "Main-Class" : "com.SankDis.Main"
+}
+
+
+///Only create class file and run it
+task run(type: JavaExec, dependsOn: classes) {
+    main 'com.SankDis.Main'
+    classpath sourceSets.main.runtimeClasspath
+}
+
