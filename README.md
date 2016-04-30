@@ -6,12 +6,12 @@ high throughput and faster messaging system for real-time data feeds. http://kaf
 
 ---
 
-## Online Documenation
+### Online Documenation
 You can find online documenation for the project [here](http://kafka.apache.org/documentation.html). This README.md contains the basic information about the sample code in repository.
 
 ---
 
-## Technologies:
+### Technologies:
 I am using gradle as dependency management tool in the project which can be downloaded from the [link](http://gradle.org/gradle-download/) .
 You will have to set GRADLE_HOME system variable and include gradle bin path in environment PATH variable.
 This project is compiled and tested with Java 8 version.
@@ -25,7 +25,7 @@ Apache common lang3 , 3.4
 
 ---
 
-## Apache kafka Installation:
+### Apache kafka Installation:
 Download Apache kafka source from [here](http://kafka.apache.org/downloads.html)
 untar the file using command : 
 
@@ -33,7 +33,7 @@ untar the file using command :
 tar -xvf kafka-0.9.0.1-src.tgz 
 ```
 ----
-## Start ZooKeeper Server :
+### Start ZooKeeper Server :
 ```sh
 sh bin/zookeeper-server-start.sh config/zookeeper.properties
 ```
@@ -41,12 +41,13 @@ Above command start the zookeeper server with zookeeper.properties configuration
 
 ---
 
-## Start Kafka server Broker:
+### Start Kafka server Broker:
 ```sh
 sh bin/kafka-server-start.sh config/server.properties
 ```
 ---
-## Create a new Topic for Testing:
+
+### Create a new Topic for Testing:
 ```sh
 sh bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic testTopic --partitions 2 --replication-factor 1
 ```
@@ -59,7 +60,7 @@ Above command creates a topic with name testTopic having 2 partition and replica
 
 ---
 
-## Verify topic created :
+### Verify topic created :
 ```sh
 sh bin/kafka-topics.sh --list --zookeeper localhost:2181
 ```
@@ -67,7 +68,7 @@ Above command give the list of topics created on broker server.
 
 ---
 
-##Sample Project :
+### Sample Project :
 
 Download the sample code from the repository and build the project. Command to build the project is: 
 (Command should be executed on root directory)
@@ -81,7 +82,7 @@ cd build/libs/
 
 ---
 
-## Prodcuer :
+### Prodcuer :
 Start the producer :
 ```sh
 java -jar kafka_0.9_example.jar producer
@@ -91,7 +92,7 @@ and MesageValue to be processed and send first 100000 records to parition 0 and 
 
 ---
 
-## Consumer:
+### Consumer:
 Start the consumer :
 ```sh
 java -jar kafka_0.9_example.jar consumer consumer1
@@ -104,7 +105,7 @@ One can start more than one consumer process here.
 
 ---
 
-## Modify the parition:
+### Modify the parition:
 ```sh
 sh bin/kafka-topics.sh --zookeeper localhost:2181 --alter --topic testTopic --partitions 3
 ```
